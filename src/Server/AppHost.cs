@@ -4,7 +4,7 @@ using ServiceStack.WebHost.Endpoints;
 
 namespace Server
 {
-	public class AppHost : AppHostBase
+	public class AppHost : AppHostHttpListenerBase
 	{
 		public AppHost() : base("ServiceStack Demo", typeof (AppHost).Assembly)
 		{
