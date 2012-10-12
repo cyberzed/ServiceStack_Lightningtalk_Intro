@@ -1,4 +1,6 @@
 ﻿using Funq;
+using ServiceStack.Logging;
+using ServiceStack.Logging.NLogger;
 using ServiceStack.ServiceHost;
 using ServiceStack.WebHost.Endpoints;
 
@@ -8,6 +10,7 @@ namespace Server
 	{
 		public AppHost() : base("ServiceStack Demo", typeof (AppHost).Assembly)
 		{
+			LogManager.LogFactory = new NLogFactory();
 		}
 
 		public override void Configure(Container container)
