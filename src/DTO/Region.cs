@@ -6,6 +6,7 @@ namespace DTO
 		Speyside,
 		Highland,
 		Campbeltown,
-		Islay
+		Islay,
+		Island
 	}
 }

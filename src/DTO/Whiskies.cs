@@ -3,6 +3,9 @@ using ServiceStack.ServiceHost;
 
 namespace DTO
 {
+	[Route("/whiskies", "GET")]
+	[Route("/whiskies/{Distillery}", "GET")]
+	[Route("/whiskies/{SearchFilter}", "GET")]
 	public class Whiskies : IReturn<IList<Whisky>>
 	{
 		public Distillery Distillery { get; set; }

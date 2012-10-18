@@ -1,4 +1,5 @@
 ﻿using Funq;
+using ServiceStack.Common;
 using ServiceStack.Logging;
 using ServiceStack.Logging.NLogger;
 using ServiceStack.ServiceHost;
@@ -17,7 +18,11 @@ namespace Server
 		{
 			SetConfig(new EndpointHostConfig
 			          	{
-			          		EnableFeatures = Feature.Json
+			          		EnableFeatures = Feature.All
+			          			.Remove(Feature.Jsv)
+			          			.Remove(Feature.Soap11)
+			          			.Remove(Feature.Soap12)
+			          			.Remove(Feature.Xml)
 			          	});
 		}
 	}

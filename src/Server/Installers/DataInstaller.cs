@@ -1,26 +1,24 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using ServiceStack.ServiceHost;
+using Server.DataLoaders;
+using Server.Repositories;
 
 namespace Server.Installers
 {
-	public class ApiInstaller : IWindsorInstaller
+	public class DataInstaller : IWindsorInstaller
 	{
 		public void Install(IWindsorContainer container, IConfigurationStore store)
 		{
 			container.Register(
-				Component.For<AppHost>()
-					.ImplementedBy<AppHost>()
-					.OnCreate(ah => ah.Init())
-					.LifestyleSingleton()
+				Classes.FromAssemblyContaining<DistilleryLoader>()
+					.InSameNamespaceAs<DistilleryLoader>()
+					.LifestyleTransient()
 				);
 
 			container.Register(
-				Classes.FromThisAssembly()
-					.BasedOn<IService>()
-					.WithService
-					.DefaultInterfaces()
+				Classes.FromAssemblyContaining<DistilleryRepository>()
+					.InSameNamespaceAs<DistilleryRepository>()
 					.LifestyleSingleton()
 				);
 		}

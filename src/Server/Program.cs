@@ -1,5 +1,4 @@
 ﻿using System;
-using Castle.Windsor;
 
 namespace Server
 {
@@ -7,21 +6,13 @@ namespace Server
 	{
 		private static void Main()
 		{
-			var container = new WindsorContainer();
-
-			var windsorContainerAdapter = new WindsorContainerAdapter(container);
-
 			const string serverListeningOn = "http://*:80/";
 
-			var appHost = new AppHost();
+			var bootStrap = new ServiceBootstrapper(serverListeningOn);
 
-			appHost.Container.Adapter = windsorContainerAdapter;
+			bootStrap.Run();
 
-			appHost.Init();
-
-			appHost.Start(serverListeningOn);
-
-			Console.WriteLine("Server started, listening on: {0}", serverListeningOn);
+			Console.WriteLine("Server started, listening on {0}", serverListeningOn);
 			Console.WriteLine("Press q to quit");
 
 			while (true)
@@ -35,13 +26,11 @@ namespace Server
 
 				if (input.Equals("q", StringComparison.OrdinalIgnoreCase))
 				{
+					bootStrap.Dispose();
+
 					break;
 				}
 			}
-
-			appHost.Stop();
-
-			container.Dispose();
 		}
 	}
 }
