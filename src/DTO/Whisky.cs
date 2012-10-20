@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics;
 using ServiceStack.ServiceHost;
 
 namespace DTO
 {
 	[Route("/whiskies", "POST,PUT")]
 	[Route("/whiskies/{Id}")]
+	[DebuggerDisplay("Name: {Name} ({AlcoholPercentage} %)")]
 	public class Whisky
 	{
 		public Guid Id { get; set; }
