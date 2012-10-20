@@ -1,8 +1,8 @@
-﻿using DTO;
+using DTO;
 using Server.Repositories;
 using ServiceStack.ServiceInterface;
 
-namespace Server
+namespace Server.Services
 {
 	public class WhiskyService : Service
 	{

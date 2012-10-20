@@ -92,7 +92,7 @@
     <Compile Include="Repositories\DistilleryRepository.cs" />
     <Compile Include="Repositories\WhiskyRepository.cs" />
     <Compile Include="ServiceBootstrapper.cs" />
-    <Compile Include="WhiskyService.cs" />
+    <Compile Include="Services\WhiskyService.cs" />
     <Compile Include="WindsorContainerAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
