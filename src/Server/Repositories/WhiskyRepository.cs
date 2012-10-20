@@ -18,12 +18,22 @@ namespace Server.Repositories
 
 		public List<Whisky> FindByDistillery(Distillery distillery)
 		{
-			return (from w in whiskyStore where w.DistilleryId == distillery.Id select w).ToList();
+			var whiskies = (from w in whiskyStore
+			                where
+			                	w.DistilleryId == distillery.Id
+			                select w);
+
+			return whiskies.ToList();
 		}
 
 		public List<Whisky> Find(string searchFilter)
 		{
-			return (from w in whiskyStore where w.Name.Contains(searchFilter) select w).ToList();
+			var whiskies = (from w in whiskyStore
+			                where
+			                	w.Name.Contains(searchFilter)
+			                select w);
+
+			return whiskies.ToList();
 		}
 
 		public List<Whisky> GetAll()
