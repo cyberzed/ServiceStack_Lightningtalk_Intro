@@ -11,7 +11,7 @@ namespace Client
 
 			var client = new JsonServiceClient(serverPath);
 
-			var whiskys = client.Get(new Whiskies());
+			var whiskys = client.Get(new Whiskies{SearchFilter = "Cask"});
 		}
 	}
 }
