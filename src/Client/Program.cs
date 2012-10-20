@@ -1,4 +1,4 @@
-﻿using DTO;
+﻿using DTO.Requests;
 using ServiceStack.ServiceClient.Web;
 
 namespace Client
@@ -11,7 +11,9 @@ namespace Client
 
 			var client = new JsonServiceClient(serverPath);
 
-			var whiskys = client.Get(new Whiskies{SearchFilter = "Cask"});
+			var regions = client.Get(new Distilleries());
+
+			var distilleries = client.Get(new Distilleries {Region = regions[0].Region});
 		}
 	}
 }

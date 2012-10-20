@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using ServiceStack.ServiceHost;
 
-namespace DTO
+namespace DTO.Requests
 {
 	[Route("/whiskies", "GET")]
 	[Route("/whiskies/{Distillery}", "GET")]

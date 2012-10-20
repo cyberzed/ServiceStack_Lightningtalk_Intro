@@ -54,7 +54,8 @@
     <Compile Include="Distillery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Region.cs" />
-    <Compile Include="Whiskies.cs" />
+    <Compile Include="Requests\Distilleries.cs" />
+    <Compile Include="Requests\Whiskies.cs" />
     <Compile Include="Whisky.cs" />
   </ItemGroup>
   <ItemGroup>

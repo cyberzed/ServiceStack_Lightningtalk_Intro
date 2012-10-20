@@ -1,4 +1,5 @@
 using DTO;
+using DTO.Requests;
 using Server.Repositories;
 using ServiceStack.ServiceInterface;
 
