@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DTO;
@@ -16,9 +17,18 @@ namespace Server.Repositories
 			}
 		}
 
+		public Distillery Find(Guid distilleryId)
+		{
+			var distillery = (from d in distilleryStore where d.Id == distilleryId select d).SingleOrDefault();
+
+			return distillery;
+		}
+
 		public Distillery Find(string distilleryName)
 		{
-			return (from d in distilleryStore where d.Name.Equals(distilleryName) select d).SingleOrDefault();
+			var distillery = (from d in distilleryStore where d.Name.Contains(distilleryName) select d).Single();
+
+			return distillery;
 		}
 	}
 }

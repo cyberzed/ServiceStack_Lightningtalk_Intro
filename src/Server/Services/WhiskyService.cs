@@ -1,4 +1,4 @@
-using DTO;
+using System;
 using DTO.Requests;
 using Server.Repositories;
 using ServiceStack.ServiceInterface;
@@ -18,16 +18,16 @@ namespace Server.Services
 
 		public object Get(Whiskies whiskies)
 		{
-			if(whiskies.Distillery!=null)
+			if (whiskies.DistilleryId != Guid.Empty)
 			{
-				var distillery = distilleryRepository.Find(whiskies.Distillery.Name);
+				var distillery = distilleryRepository.Find(whiskies.DistilleryId);
 
 				var distilleryWhiskies = whiskyRepository.FindByDistillery(distillery);
 
 				return distilleryWhiskies;
 			}
 
-			if(!string.IsNullOrWhiteSpace(whiskies.SearchFilter))
+			if (!string.IsNullOrWhiteSpace(whiskies.SearchFilter))
 			{
 				return whiskyRepository.Find(whiskies.SearchFilter);
 			}
