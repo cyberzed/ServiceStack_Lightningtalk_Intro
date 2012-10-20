@@ -19,12 +19,7 @@ namespace Server
 			{
 				var input = Console.ReadLine();
 
-				if (string.IsNullOrWhiteSpace(input))
-				{
-					continue;
-				}
-
-				if (input.Equals("q", StringComparison.OrdinalIgnoreCase))
+				if (input != null && input.Equals("q", StringComparison.OrdinalIgnoreCase))
 				{
 					bootStrap.Dispose();
 
